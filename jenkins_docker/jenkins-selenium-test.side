@@ -1,0 +1,73 @@
+{
+  "id": "1f08cfbb-6632-4dd4-86ae-c95898dd94c1",
+  "version": "2.0",
+  "name": "jenkins-selenium-test",
+  "url": "https://www.google.com",
+  "tests": [{
+    "id": "b5c14745-560a-4d1f-9813-573cafbe4c55",
+    "name": "search-jenkins",
+    "commands": [{
+      "id": "107dbf59-6081-4868-aff4-1155a17fb627",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bc757729-5891-4706-9c0c-e2fee582814b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "942x1080",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "14a1ad8c-37b4-4a89-8107-97d450e87c11",
+      "comment": "",
+      "command": "type",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.gLFyf", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//form[@id='tsf']/div[2]/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "jenkins test"
+    }, {
+      "id": "8c7d0fdd-d79c-48ea-8528-67a0d2718929",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.gLFyf", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//form[@id='tsf']/div[2]/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "25fdea02-7663-46ad-9d5c-02c14e4556ae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.g:nth-child(1) .LC20lb",
+      "targets": [
+        ["css=.g:nth-child(1) .LC20lb", "css:finder"],
+        ["xpath=//div[@id='rso']/div/div/div/div/div/div/a/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Jenkinsを使った自動テスト環境を作る（前編） | さくらのナレッジ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c9242f6b-ae9b-402a-8426-71b92bee1185",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["b5c14745-560a-4d1f-9813-573cafbe4c55"]
+  }],
+  "urls": ["https://www.google.com/"],
+  "plugins": []
+}

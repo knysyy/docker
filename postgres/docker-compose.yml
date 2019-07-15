@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  postgresql:
+    image: postgres:10.5
+    container_name: postgres
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+    ports:
+      - 5432:5432
+    volumes:
+      - test_db:/var/lib/postgresql/data
+
+volumes:
+  test_db:
+    external: true
