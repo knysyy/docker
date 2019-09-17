@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    image: nginx:alpine
+    container_name: web
+    ports:
+      - 8080:80
+    volumes:
+      - ./web/conf.d:/etc/nginx/conf.d
+      - ./web/.htpasswd:/etc/nginx/.htpasswd
+  
+  proxy:
+    image: nginx:alpine
+    container_name: proxy
+    expose:
+      - 3128
+    volumes:
+      - ./proxy/conf.d:/etc/nginx/conf.d
+  
+  front:
+    build: ./front
+    container_name: front
+    tty: true
