@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  postgresql:
+    volumes:
+      - adonis_db:/var/lib/postgresql/data
+
+volumes:
+  adonis_db:
+    external: true
