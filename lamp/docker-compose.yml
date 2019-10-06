@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  php:
+    build: ./php
+    volumes: 
+      - ./php/public:/var/www/html
+    ports:
+      - 80:80
+
+  mysql:
+    image: mysql:5.5
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    ports:
+      - 13306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    volumes:
+      - ./phpmyadmin/sessions:/sessions
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBTRARY=1
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=password
